@@ -1,0 +1,25 @@
+header
+  .container
+    .row
+      #site-logo.col-sm-6
+        a href="/"
+          img.img-responsive border="0" src="#{image_path}/sitelogo.png" alt="#{site_name}"
+      #welcome.col-sm-6.hidden-xs
+        span #{current_admin_nickname} でログインしています
+nav.navbar.navbar-default
+  .container
+    .navbar-header
+      button.navbar-toggle data-target="#navbar-main" data-toggle="collapse" type="button"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li.active
+          a href="/"
+            | トップ
+      ul.nav.navbar-nav.navbar-right
+        li
+          = link_to t('view.common.admin_edit'), edit_admin_registration_path
+        li
+          = link_to t('view.common.logout'), destroy_admin_session_path, method: :delete

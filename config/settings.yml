@@ -1,0 +1,5 @@
+cmn:
+  site_name: 'SampleAdmin'
+  site_title_head: 'SampleAdmin'
+  site_title_body: 'SampleAdmin'
+  guest_name: 'ゲスト'

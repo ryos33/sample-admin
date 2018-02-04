@@ -1,0 +1,10 @@
+- if resource.errors.present?
+  ul.errors
+    - resource.errors.full_messages.each do |message|
+      li
+        = message
+- if flash[:alert].present?
+  ul.errors
+    li
+      = flash[:alert]
+

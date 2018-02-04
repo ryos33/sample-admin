@@ -1,0 +1,7 @@
+.container
+  - if (yield(:title)).present?
+    section.content-header
+      h1
+        = body_title(yield(:title))
+  section.content
+    = yield

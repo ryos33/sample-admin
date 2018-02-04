@@ -1,0 +1,13 @@
+{
+  "name": "sample-admin",
+  "version": "0.0.1",
+  "dependencies": {
+    "polymer": "0.5.4",
+    "bootstrap": "latest",
+    "fontawesome": "latest",
+    "ionicons": "latest",
+    "jquery": "latest",
+    "jquery-ujs": "latest",
+    "bootswatch": "3.3.7"
+  }
+}

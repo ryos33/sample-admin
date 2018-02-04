@@ -1,0 +1,14 @@
+- content_for(:title, t('.title'))
+
+#passwords_page.container
+  .row
+    .col-xs-12
+      p
+        = flash[:notice]
+  .row
+    .col-sm-4.col-xs-12
+      p#login_button
+        = link_to new_admin_session_path do
+          button.btn.btn-primary.btn-block
+            = t('.login')
+

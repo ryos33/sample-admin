@@ -1,0 +1,21 @@
+- content_for(:title, t('.title'))
+
+#passwords_page.container
+  = form_for(resource, as: resource_name, url: new_password_path(resource_name), html: { method: :post } ) do |f|
+    .row
+      .col-md-offset-3.col-md-6.col-xs-12
+        = render partial: 'devise/shared/error_message'
+    .row
+      .col-md-offset-3.col-md-6.col-xs-12
+        .table-responsive
+        table.table.table-bordered
+          tr
+            th.col-xs-3.item_header
+              = t('.email')
+            td.col-xs-9.item_body
+              = f.email_field :email, class: 'form-control input_email', placeholder: t('.example.email'), autofocus: true
+    .row
+      .col-md-offset-3.col-md-6.col-xs-12.text-center
+        = f.submit t('.send'), class: 'btn btn-primary send_button'
+        = link_to t('.back'), root_path, class: 'btn btn-default back_button'
+

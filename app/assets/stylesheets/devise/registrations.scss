@@ -1,0 +1,43 @@
+#registrations_page {
+  th.item_header {
+    font-weight: normal;
+  }
+  table {
+    input.input_email {
+      width: 95%;
+    }
+    input.input_password {
+      width: 100px;
+    }
+    input.input_password_confirmation {
+      width: 100px;
+    }
+    input.input_current_password {
+      width: 100px;
+    }
+    input.input_nickname {
+      width: 200px;
+    }
+    input.input_name {
+      margin-left: 10px;
+      width: 85%;
+      display: inline-block;
+    }
+    .name_area {
+      margin-left: -15px;
+    }
+  }
+  .create_button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .update_button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .back_button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+

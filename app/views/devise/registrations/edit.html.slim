@@ -1,0 +1,60 @@
+- content_for(:title, t('.title'))
+
+#registrations_page.container
+  = form_for(resource, as: resource_name, url: edit_registration_path(resource_name), html: { method: :put } ) do |f|
+    = render partial: 'devise/shared/error_message'
+    - if flash[:notice].present?
+      .row
+        .col-xs-12
+          = flash[:notice]
+    .table-responsive
+      table.table.table-bordered
+        tr
+          th.col-xs-3.item_header
+            = t('.current_password')
+          td.col-xs-9.item_body
+            = f.password_field :current_password, autocomplete: 'off', class: 'form-control input_current_password', autofocus: true
+        tr
+          th.col-xs-3.item_header
+            = t('.password')
+          td.col-xs-9.item_body
+            = f.password_field :password, autocomplete: 'off', class: 'form-control input_password'
+        tr
+          th.col-xs-3.item_header
+            = t('.password_confirmation')
+          td.col-xs-9.item_body
+            = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control input_password_confirmation'
+        tr
+          th.col-xs-3.item_header
+            = t('.email')
+          td.col-xs-9.item_body
+            = f.email_field :email, maxlength: 100, class: 'form-control input_email', placeholder: t('.example.email')
+        tr
+          th.col-xs-3.item_header
+            = t('.nickname')
+          td.col-xs-9.item_body
+            = f.text_field :nickname, maxlength: 30, class: 'form-control input_nickname', placeholder: t('.example.nickname')
+        /tr
+          th.col-xs-3.item_header
+            = t('.full_name')
+          td.col-xs-9.item_body
+            .col-md-4.col-xs-6.name_area
+              = t('.last_name')
+              = f.text_field :last_name, maxlength: 30, class: 'form-control input_name', placeholder: t('.example.last_name')
+            .col-md-4.col-xs-6.name_area
+              = t('.first_name')
+              = f.text_field :first_name, maxlength: 30, class: 'form-control input_name', placeholder: t('.example.first_name')
+        /tr
+          th.col-xs-3.item_header
+            = t('.full_kana')
+          td.col-xs-9.item_body
+            .col-md-4.col-xs-6.name_area
+              = t('.last_name')
+              = f.text_field :last_kana, maxlength: 30, class: 'form-control input_name', placeholder: t('.example.last_kana')
+            .col-md-4.col-xs-6.name_area
+              = t('.first_name')
+              = f.text_field :first_kana, maxlength: 30, class: 'form-control input_name', placeholder: t('.example.first_kana')
+    .row
+      .col-xs-12.text-center
+        = f.submit t('.update'), class: 'btn btn-primary update_button'
+

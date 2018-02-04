@@ -1,0 +1,31 @@
+#site-logo {
+  height: 45px;
+}
+#welcome {
+  height: 45px;
+  position: relative;
+}
+#welcome span {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+}
+input {
+  font-family: monospace;
+  font-size: 120%;
+}
+select {
+  font-family: monospace;
+  font-size: 120%;
+}
+
+.field_with_errors {
+  display: inline;
+  input {
+    border-color: #a94442;
+  }
+}
+
+ul.errors {
+  color: #a94442;
+}

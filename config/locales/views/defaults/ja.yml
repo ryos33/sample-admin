@@ -1,0 +1,10 @@
+---
+ja:
+  view:
+    common:
+      login: 'ログイン'
+      logout: 'ログアウト'
+      admin_edit: '個人情報変更'
+      currency: '円'
+      currency_format: '%s 円'
+

@@ -1,0 +1,8 @@
+- content_for(:title, t('.title'))
+
+#passwords_page.container
+  .row
+    .col-xs-12
+      p
+        = flash[:notice]%flash[:email]
+

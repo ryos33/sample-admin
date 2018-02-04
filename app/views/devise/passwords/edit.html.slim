@@ -1,0 +1,27 @@
+- content_for(:title, t('.title'))
+
+#passwords_page.container
+  = form_for(resource, as: resource_name, url: edit_password_path(resource_name), html: { method: :put } ) do |f|
+    = f.hidden_field :reset_password_token
+    .row
+      .col-md-offset-3.col-md-6.col-xs-12
+        = render partial: 'devise/shared/error_message'
+    .row
+      .col-md-offset-3.col-md-6.col-xs-12
+        .table-responsive
+        table.table.table-bordered
+          tr
+            th.col-xs-3.item_header
+              = t('.password')
+            td.col-xs-9.item_body
+              = f.password_field :password, autocomplete: 'off', class: 'form-control input_password'
+          tr
+            th.col-xs-3.item_header
+              = t('.password_confirmation')
+            td.col-xs-9.item_body
+              = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control input_password_confirmation'
+    .row
+      .col-md-offset-3.col-md-6.col-xs-12.text-center
+        = f.submit t('.change_password'), class: 'btn btn-primary update_button'
+        = link_to t('.back'), root_path, class: 'btn btn-default back_button'
+

@@ -1,0 +1,56 @@
+ja:
+  activerecord:
+    attributes:
+      admin:
+        current_password: "現在のパスワード"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        last_name: '氏名（姓）'
+        first_name: '氏名（名）'
+        last_kana: '氏名フリガナ（姓）'
+        first_kana: '氏名フリガナ（名）'
+        postcode: '郵便番号'
+        prefecture: '都道府県'
+        city: '市区町村'
+        address: '以降の住所'
+        tel: '電話番号'
+        nickname: 'ニックネーム'
+        remember_me: "ログインを記憶"
+        reset_password_token: "パスワードリセットトークン"
+        unlock_token: "ロック解除トークン"
+    models:
+      admin: '担当者'
+  devise:
+    failure:
+      already_authenticated: "すでにログインしています。"
+      inactive: "アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。"
+      invalid: "メールアドレスまたはパスワードが違います。"
+      last_attempt: "あなたのアカウントがロックされる前に、複数回の操作がおこなわれています。"
+      locked: "あなたのアカウントはロックされています。"
+      not_found_in_database: "メールアドレスまたはパスワードが違います。"
+      timeout: "セッションがタイムアウトしました。もう一度ログインしてください。"
+      unauthenticated: "アカウント登録もしくはログインしてください。"
+      unconfirmed: "メールアドレスの本人確認が必要です。"
+    omniauth_callbacks:
+      failure: "%{kind} アカウントによる認証に失敗しました。理由：（%{reason}）"
+      success: "%{kind} アカウントによる認証に成功しました。"
+    shared:
+      links:
+        back: "戻る"
+        didn_t_receive_confirmation_instructions: "アカウント確認のメールを受け取っていませんか?"
+        didn_t_receive_unlock_instructions: "アカウントのロック解除方法のメールを受け取っていませんか?"
+        forgot_your_password: "パスワードを忘れましたか?"
+        sign_in: "ログイン"
+        sign_in_with_provider: "%{provider}でログイン"
+        sign_up: "アカウント登録"
+  errors:
+    messages:
+      already_confirmed: "は既に確認済みです。ログインしてください。"
+      confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。"
+      expired: "の有効期限が切れました。新しくリクエストしてください。"
+      not_found: "は見つかりませんでした。"
+      not_locked: "はロックされていません。"
+      not_saved:
+        one: "入力内容に不備があるかエラーが発生したためお客様情報は変更されませんでした"
+        other: "入力内容に不備があるかエラーが発生したためお客様情報は変更されませんでした"

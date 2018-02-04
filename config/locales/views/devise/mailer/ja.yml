@@ -1,0 +1,21 @@
+ja:
+  devise:
+    mailer:
+      password_change:
+        subject: 'パスワードの変更について'
+        greeting: "こんにちは、%{recipient}さん!"
+        message: "あなたのパスワードが再設定されたことを通知します。"
+      reset_password_instructions:
+        subject: 'パスワードの再設定について'
+        action: "パスワード変更"
+        greeting: "こんにちは、%{recipient}さん!"
+        instruction: "誰かがパスワードの再設定を希望しました。次のリンクでパスワードの再設定が出来ます。"
+        instruction_2: "あなたが希望したのではないのなら、このメールは無視してください。"
+        instruction_3: "上のリンクにアクセスして新しいパスワードを設定するまで、パスワードは変更されません。"
+      unlock_instructions:
+        subject: 'アカウントのロック解除について'
+        action: "アカウントのロック解除"
+        greeting: "こんにちは、%{recipient}さん!"
+        instruction: "アカウントのロックを解除するには下のリンクをクリックしてください。"
+        message: "ログイン失敗が繰り返されたため、アカウントはロックされています。"
+

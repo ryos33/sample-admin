@@ -1,0 +1,25 @@
+#sessions_page {
+  th.item_header {
+    font-weight: normal;
+  }
+  table {
+    input.input_email {
+      width: 95%;
+    }
+    input.input_password {
+      width: 100px;
+    }
+  }
+  .login_button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .back_button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .login_menu {
+    margin-top: 20px;
+  }
+}
+

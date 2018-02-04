@@ -10,6 +10,22 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootswatch/flatly/bootstrap
+ *= require fontawesome
+ *= require ionicons
  *= require_tree .
  *= require_self
  */
+
+$fa-font-path:   "fontawesome/fonts/";
+$icon-font-path: "bootswatch/fonts/";
+$icon-font-name: "glyphicons-halflings-regular";
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: font-url('#{$icon-font-path}#{$icon-font-name}.eot');
+  src: font-url('#{$icon-font-path}#{$icon-font-name}.eot?#iefix') format('embedded-opentype'),
+       font-url('#{$icon-font-path}#{$icon-font-name}.woff') format('woff'),
+       font-url('#{$icon-font-path}#{$icon-font-name}.ttf') format('truetype'),
+       font-url('#{$icon-font-path}#{$icon-font-name}.svg#glyphicons_halflingsregular') format('svg');
+}
+
