@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20180204074842) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.integer "failed_attempts", default: 0, null: false
-    t.string "unlock_token"
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(version: 20180204074842) do
     t.index ["admin_no"], name: "pk_admins", unique: true
     t.index ["email", "deleted_at"], name: "uq_email", unique: true
     t.index ["reset_password_token", "deleted_at"], name: "uq_reset_password_token", unique: true
-    t.index ["unlock_token", "deleted_at"], name: "uq_unlock_token", unique: true
   end
 
   create_table "sequences", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

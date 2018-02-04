@@ -1,2 +1,3 @@
 cmn:
   image_path: 'http://staticfileserver/sample-admin-img'
+  mail_from: 'info@sample-admin'

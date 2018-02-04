@@ -35,7 +35,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration[5.0]
 
       ## Lockable
       t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
-      t.string   :unlock_token # Only if unlock strategy is :email or :both
+      # t.string   :unlock_token # Only if unlock strategy is :email or :both
       t.datetime :locked_at
 
 
@@ -46,6 +46,6 @@ class DeviseCreateAdmins < ActiveRecord::Migration[5.0]
     add_index :admins, [:admin_no],                          unique: true, name: 'pk_admins'
     add_index :admins, [:email, :deleted_at],                unique: true, name: 'uq_email'
     add_index :admins, [:reset_password_token, :deleted_at], unique: true, name: 'uq_reset_password_token'
-    add_index :admins, [:unlock_token, :deleted_at],         unique: true, name: 'uq_unlock_token'
+    # add_index :admins, [:unlock_token, :deleted_at],         unique: true, name: 'uq_unlock_token'
   end
 end

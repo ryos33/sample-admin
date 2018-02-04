@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   devise_scope :admin do
     get 'login', to: 'admins/sessions#new', as: 'new_admin_session'
     post 'login', to: 'admins/sessions#create', as: 'admin_session'
-    delete 'logout', to: 'admins/sessions#destroy', as: nil
     get 'logout', to: 'admins/sessions#destroy', as: 'destroy_admin_session'
 
     get 'me/edit', to: 'admins/registrations#edit', as: 'edit_admin_registration'
