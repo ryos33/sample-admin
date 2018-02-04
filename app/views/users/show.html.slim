@@ -1,0 +1,39 @@
+p#notice = notice
+
+p
+  strong User no:
+  = @user.user_no
+p
+  strong Last name:
+  = @user.last_name
+p
+  strong First name:
+  = @user.first_name
+p
+  strong Last kana:
+  = @user.last_kana
+p
+  strong First kana:
+  = @user.first_kana
+p
+  strong Postcode:
+  = @user.postcode
+p
+  strong Prefecture:
+  = @user.prefecture
+p
+  strong City:
+  = @user.city
+p
+  strong Address:
+  = @user.address
+p
+  strong Gender:
+  = @user.gender_i18n
+p
+  strong Birthday:
+  = @user.birthday
+
+=> link_to 'Edit', edit_user_path(@user)
+'|
+=< link_to 'Back', users_path

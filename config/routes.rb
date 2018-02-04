@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root :to => 'dashboard#show'
 
+  resources :users
+
   devise_for :admins, path: '', only: nil
   devise_scope :admin do
     get 'login', to: 'admins/sessions#new', as: 'new_admin_session'

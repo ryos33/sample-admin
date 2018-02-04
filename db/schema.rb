@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204074842) do
+ActiveRecord::Schema.define(version: 20180204152937) do
 
   create_table "admins", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "admin_no"
@@ -45,6 +45,28 @@ ActiveRecord::Schema.define(version: 20180204074842) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sequence_name"], name: "pk_sequences", unique: true
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_no"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_kana"
+    t.string "first_kana"
+    t.string "postcode"
+    t.string "prefecture"
+    t.string "city"
+    t.string "address"
+    t.string "tel"
+    t.string "nickname"
+    t.integer "gender"
+    t.date "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at", null: false
+    t.index ["user_no"], name: "pk_users", unique: true
   end
 
 end
