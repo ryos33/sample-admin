@@ -1,0 +1,26 @@
+---
+ja:
+  users:
+    index:
+      title: 'ユーザ一覧'
+      edit: '　編集　'
+      delete: '　削除　'
+      register: '新規登録'
+      are_you_sure: '削除してもよろしいですか？'
+    show:
+      title: 'ユーザ情報'
+      edit: '　編集　'
+      delete: '　削除　'
+      back: '一覧に戻る'
+      are_you_sure: '削除してもよろしいですか？'
+    new:
+      title: 'ユーザ登録'
+    edit:
+      title: 'ユーザ情報編集'
+    form:
+      cancel: '編集せずに戻る'
+      back: '一覧に戻る'
+  helpers:
+    submit:
+      create: '登録を確定する'
+      update: '編集を確定する'

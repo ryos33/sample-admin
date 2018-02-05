@@ -1,41 +1,57 @@
-h1 Listing users
+- content_for(:title, t('.title'))
 
-table
-  thead
-    tr
-      th User no
-      th Last name
-      th First name
-      th Last kana
-      th First kana
-      th Postcode
-      th Prefecture
-      th City
-      th Address
-      th Gender
-      th Birthday
-      th
-      th
-      th
+#users_page.container
+  .table-responsive
+    table.table.table-bordered.table-hover
+      thead
+        tr
+          th.col-xs-1
+            = User.human_attribute_name(:user_no)
+          th.col-xs-2
+            = User.human_attribute_name(:full_name)
+            | &ensp;/&ensp;
+            = User.human_attribute_name(:full_kana)
+          th.col-xs-2
+            = User.human_attribute_name(:full_address)
+          th.col-xs-2
+            = User.human_attribute_name(:tel)
+          th.col-xs-1
+            = User.human_attribute_name(:gender)
+          th.col-xs-2
+            = User.human_attribute_name(:birthday)
+            | &ensp;/&ensp;
+            = User.human_attribute_name(:age)
+          th.col-xs-2
+      tbody
+        - @users.each do |user|
+          tr
+            td
+              = link_to user.user_no_f, user
+            td
+              = user.name
+              br
+              = user.kana
+            td
+              = user.postcode_f
+              br
+              = user.full_address
+            td
+              = user.tel
+            td = user.gender_i18n
+            td
+              = l(user.birthday)
+              | &ensp;(
+              = user.age
+              | )
+            td
+              = link_to edit_user_path(user) do
+                button.btn.btn-primary.btn-sm
+                  = t('.edit')
+              | &emsp;
+              = link_to user, data: { confirm: t('.are_you_sure') }, method: :delete do
+                button.btn.btn-secondary.btn-sm
+                  = t('.delete')
+  .row.buttons
+    .col-xs-12
+      = link_to t('.register'), new_user_path, class: 'btn btn-primary register_button'
 
-  tbody
-    - @users.each do |user|
-      tr
-        td = user.user_no
-        td = user.last_name
-        td = user.first_name
-        td = user.last_kana
-        td = user.first_kana
-        td = user.postcode
-        td = user.prefecture
-        td = user.city
-        td = user.address
-        td = user.gender_i18n
-        td = user.birthday
-        td = link_to 'Show', user
-        td = link_to 'Edit', edit_user_path(user)
-        td = link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New User', new_user_path

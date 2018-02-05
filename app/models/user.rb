@@ -16,11 +16,28 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { maximum: 30 }
   validates :gender, presence: true, inclusion: { in: User.genders.keys }
 
+  def user_no_f
+    "%04d-%04d" % [(user_no/10000), (user_no%10000) ]
+  end
+
   def name
     "#{last_name} #{first_name}"
   end
 
   def kana
     "#{last_kana} #{first_kana}"
+  end
+
+  def postcode_f
+    "#{postcode[0,3]}-#{postcode[3,4]}"
+  end
+
+  def full_address
+    "#{prefecture}#{city}#{address}"
+  end
+
+  def age
+    date_format = "%Y%m%d"
+    (Date.today.strftime(date_format).to_i - birthday.strftime(date_format).to_i) / 10000
   end
 end

@@ -1,39 +1,54 @@
-p#notice = notice
+- content_for(:title, t('.title'))
 
-p
-  strong User no:
-  = @user.user_no
-p
-  strong Last name:
-  = @user.last_name
-p
-  strong First name:
-  = @user.first_name
-p
-  strong Last kana:
-  = @user.last_kana
-p
-  strong First kana:
-  = @user.first_kana
-p
-  strong Postcode:
-  = @user.postcode
-p
-  strong Prefecture:
-  = @user.prefecture
-p
-  strong City:
-  = @user.city
-p
-  strong Address:
-  = @user.address
-p
-  strong Gender:
-  = @user.gender_i18n
-p
-  strong Birthday:
-  = @user.birthday
-
-=> link_to 'Edit', edit_user_path(@user)
-'|
-=< link_to 'Back', users_path
+#user_show_page.container
+  .table-responsive
+    table.table.table-bordered
+      tr
+        th.col-xs-2.item_header
+          = label(:user, :user_no)
+        td.col-xs-10.item_body
+          = @user.user_no_f
+      tr
+        th.col-xs-2.item_header
+          = label(:user, :full_name)
+        td.col-xs-10.item_body
+          = @user.name
+      tr
+        th.col-xs-2.item_header
+          = label(:user, :full_kana)
+        td.col-xs-10.item_body
+          = @user.kana
+      tr
+        th.col-xs-2.item_header
+          = label(:user, :postcode)
+        td.col-xs-10.item_body
+          = @user.postcode_f
+      tr
+        th.col-xs-2.item_header
+          = label(:user, :full_address)
+        td.col-xs-10.item_body
+          = @user.full_address
+      tr
+        th.col-xs-2.item_header
+          = label(:user, :tel)
+        td.col-xs-10.item_body
+          = @user.tel
+      tr
+        th.col-xs-2.item_header
+          = label(:user, :nickname)
+        td.col-xs-10.item_body
+          = @user.nickname
+      tr
+        th.col-xs-2.item_header
+          = label(:user, :email)
+        td.col-xs-10.item_body
+          = @user.email
+  .row.buttons
+    .col-xs-12.text-center
+      = link_to edit_user_path(@user) do
+        button.btn.btn-primary
+          = t('.edit')
+      = link_to @user, data: { confirm: t('.are_you_sure') }, method: :delete do
+        button.btn.btn-secondary
+          = t('.delete')
+      = link_to t('.back'), users_path, class: 'btn btn-default back_button'

@@ -1,42 +1,103 @@
-= form_for @user do |f|
+= form_for @user, html: { class: 'h-adr' } do |f|
+  input type="hidden" class="p-country-name" value="Japan"
   - if @user.errors.any?
     #error_explanation
       h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      ul
+      ul.errors
         - @user.errors.full_messages.each do |message|
           li = message
-
-  .field
-    = f.label :user_no
-    = f.number_field :user_no
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :last_kana
-    = f.text_field :last_kana
-  .field
-    = f.label :first_kana
-    = f.text_field :first_kana
-  .field
-    = f.label :postcode
-    = f.text_field :postcode
-  .field
-    = f.label :prefecture
-    = f.text_field :prefecture
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :gender
-    = f.select :gender, User.genders_i18n.invert
-  .field
-    = f.label :birthday
-    = f.date_select :birthday
-  .actions = f.submit
+  - if flash[:notice].present?
+      .row
+        .col-xs-12
+          = flash[:notice]
+  .table-responsive
+    table.table.table-bordered
+      - unless @user.new_record?
+        tr
+          th.col-xs-2.item_header
+            = label(:user, :user_no)
+          td.col-xs-10.item_body
+            = @user.user_no_f
+      tr
+        th.col-xs-2.item_header
+          = f.label :full_name
+        td.col-xs-10.item_body
+          .col-md-4.col-xs-6.name_area
+            = f.label :last_name_label
+            = f.text_field :last_name, maxlength: 30, class: 'form-control input_name'
+          .col-md-4.col-xs-6.name_area
+            = f.label :first_name_label
+            = f.text_field :first_name, maxlength: 30, class: 'form-control input_name'
+      tr
+        th.col-xs-2.item_header
+          = f.label :full_kana
+        td.col-xs-10.item_body
+          .col-md-4.col-xs-6.name_area
+            = f.label :last_kana_label
+            = f.text_field :last_kana, maxlength: 30, class: 'form-control input_name'
+          .col-md-4.col-xs-6.name_area
+            = f.label :first_kana_label
+            = f.text_field :first_kana, maxlength: 30, class: 'form-control input_name'
+      tr
+        th.col-xs-2.item_header
+          = f.label :postcode
+        td.col-xs-10.item_body
+          = f.text_field :postcode, maxlength: 8, class: 'form-control input_postcode p-postal-code'
+      tr
+        th.col-xs-2.item_header
+          = f.label :prefecture
+        td.col-xs-10.item_body
+          = f.text_field :prefecture, class: 'form-control input_prefecture p-region'
+      tr
+        th.col-xs-2.item_header
+          = f.label :city
+        td.col-xs-10.item_body
+          = f.text_field :city, class: 'form-control input_city p-locality'
+      tr
+        th.col-xs-2.item_header
+          = f.label :address
+        td.col-xs-10.item_body
+          = f.text_field :address, maxlength: 100, class: 'form-control input_address p-street-address p-extended-address'
+      tr
+        th.col-xs-2.item_header
+          = f.label :tel
+        td.col-xs-10.item_body
+          = f.text_field :tel, maxlength: 13, class: 'form-control input_tel'
+      tr
+        th.col-xs-2.item_header
+          = f.label :email
+        td.col-xs-10.item_body
+          = f.email_field :email, maxlength: 100, class: 'form-control input_email'
+      tr
+        th.col-xs-2.item_header
+          = f.label :nickname
+        td.col-xs-10.item_body
+          = f.text_field :nickname, maxlength: 30, class: 'form-control input_nickname'
+      tr
+        th.col-xs-2.item_header
+          = f.label :password
+        td.col-xs-10.item_body
+          = f.password_field :password, autocomplete: 'off', class: 'form-control input_password'
+      tr
+        th.col-xs-2.item_header
+          = f.label :password_confirmation
+        td.col-xs-10.item_body
+          = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control input_password_confirmation'
+      tr
+        th.col-xs-2.item_header
+          = f.label :gender
+        td.col-xs-10.item_body
+          = f.select :gender, User.genders_i18n.invert, {}, { class: 'form-control input_gender' }
+      tr
+        th.col-xs-2.item_header
+          = f.label :birthday
+        td.col-xs-10.item_body
+          = f.date_select :birthday, { start_year: 1900, use_month_numbers: true, default: Date.new(1980, 1, 1) }, { class: 'form-control input_gender' }
+  .row.buttons
+    .col-xs-12.text-center
+      = f.submit class: 'btn btn-primary commit_button'
+      - unless @user.new_record?
+        = link_to @user do
+          button.btn.btn-secondary
+            = t('.cancel')
+      = link_to t('.back'), users_path, class: 'btn btn-default back_button'
