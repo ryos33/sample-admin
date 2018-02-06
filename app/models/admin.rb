@@ -1,5 +1,8 @@
 class Admin < ApplicationRecord
   acts_as_paranoid sentinel_value: '1000-01-01'
+  has_many :admin_permissions
+  has_many :permissions, through: :admin_permissions
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,

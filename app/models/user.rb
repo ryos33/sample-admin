@@ -16,6 +16,9 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { maximum: 30 }
   validates :gender, presence: true, inclusion: { in: User.genders.keys }
 
+  scope :male, -> { where(gender: self.genders[:male]) }
+  scope :female, -> { where(gender: self.genders[:female]) }
+
   def user_no_f
     "%04d-%04d" % [(user_no/10000), (user_no%10000) ]
   end
