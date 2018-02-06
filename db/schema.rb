@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204152937) do
+ActiveRecord::Schema.define(version: 20180206115304) do
+
+  create_table "admin_permissions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "admin_id", null: false
+    t.bigint "permission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_admin_permissions_on_admin_id"
+    t.index ["permission_id"], name: "index_admin_permissions_on_permission_id"
+  end
 
   create_table "admins", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "admin_no"
@@ -37,6 +46,15 @@ ActiveRecord::Schema.define(version: 20180204152937) do
     t.index ["admin_no"], name: "pk_admins", unique: true
     t.index ["email", "deleted_at"], name: "uq_email", unique: true
     t.index ["reset_password_token", "deleted_at"], name: "uq_reset_password_token", unique: true
+  end
+
+  create_table "permissions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "model", null: false
+    t.string "permission", null: false
+    t.integer "permission_div", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at", null: false
   end
 
   create_table "sequences", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

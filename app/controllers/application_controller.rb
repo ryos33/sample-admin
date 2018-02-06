@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :store_current_location_for_admin, :unless => :devise_controller?
 
+  def current_ability
+    @current_ability ||= Ability.new(current_admin)
+  end
+
   protected
 
   def current_admin_no
